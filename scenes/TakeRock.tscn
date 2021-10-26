@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/pngegg.png" type="Texture" id=1]
+[ext_resource path="res://scripts/TakeRock.gd" type="Script" id=2]
+
+[node name="TakeRock" type="Node2D"]
+position = Vector2( 139.691, 88.8944 )
+script = ExtResource( 2 )
+
+[node name="pngegg" type="Sprite" parent="."]
+position = Vector2( -0.771912, -0.445175 )
+scale = Vector2( 0.228469, 0.262346 )
+texture = ExtResource( 1 )
