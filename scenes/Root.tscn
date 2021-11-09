@@ -17,4 +17,4 @@ scale = Vector2( 3, 3 )
 script = ExtResource( 3 )
 
 [node name="TakeRock" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1200.03, 120.504 )
+position = Vector2( 1210.71, 440.865 )

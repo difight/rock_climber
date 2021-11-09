@@ -11,6 +11,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
+	print(Busevents.get_incoming_connections())
 	#Right_Hand.linear_velocity = Vector2.RIGHT * 500
 	pass # Replace with function body.
 
