@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var TakeRock:Area2D = get_node("Area2D")
-onready var Images:Sprite = get_node("pngegg")
-
+onready var TakeRock:RigidBody2D = get_node("RigidBody2D")
+onready var Images:Sprite = get_node("RigidBody2D/Pngegg")
+var pinjoin = PinJoint2D.new()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,13 +18,14 @@ func _process(delta):
 	if Input.is_action_pressed("ui_take"):
 		Busevents.emit_signal("go_to_rock", self)
 
-
 func _on_Area2D_body_entered(body):
-	var pinjoin = Joint2D.new()
-	print(TakeRock.get_path().get_as_property_path())
-	var path_body = body.get_path()
-	
-	TakeRock.add_child(pinjoin)
-	pinjoin.node_a = path_body
-	
-	pass # Replace with function body.
+	if Input.is_action_pressed("ui_take"):
+		pinjoin.node_a = body.get_path()
+		pinjoin.node_b = TakeRock.get_path()
+		add_child(pinjoin)
+		print(pinjoin.get_path())
+		print(body.get_path())
+		print(TakeRock.get_path())
+	else:
+		remove_child(pinjoin)
+		print('remove')

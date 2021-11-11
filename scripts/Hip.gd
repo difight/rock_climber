@@ -8,7 +8,6 @@ extends Bone2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(get_index_in_skeleton())
 	pass # Replace with function body.
 
 
