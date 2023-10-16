@@ -1,8 +1,12 @@
 res://default_env.tres
+res://node_2d.tscn
+res://scripts/class/TakeRock.gd
+res://Test.gd
 res://scenes/Root.tscn
-res://scripts/TakeRock.gd
 res://scenes/character/Character.tscn
 res://scenes/TakeRock.tscn
-res://scripts/autoload/busevents.gd
 res://scripts/Rocks.gd
-res://scripts/class/TakeRock.gd
+res://README.md
+res://scripts/Character.gd
+res://scripts/autoload/busevents.gd
+res://scripts/autoload/signals.gd

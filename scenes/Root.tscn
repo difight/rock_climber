@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://6ypanhmu2vb8"]
+[gd_scene load_steps=5 format=3 uid="uid://6ypanhmu2vb8"]
 
 [ext_resource type="PackedScene" uid="uid://dhxv4gktcet5h" path="res://scenes/character/Character.tscn" id="1_lxsdu"]
 [ext_resource type="PackedScene" uid="uid://dpk75fq7y6al5" path="res://scenes/Rock.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://d0c4daup83kb2" path="res://scenes/TakeRock.tscn" id="2_324qe"]
-[ext_resource type="Script" path="res://scripts/Rocks.gd" id="4_dqsmx"]
 
 [sub_resource type="Environment" id="Environment_mtjg5"]
 
@@ -21,15 +20,12 @@ position = Vector2(453, 53)
 
 [node name="TakeRock" parent="." instance=ExtResource("2_324qe")]
 position = Vector2(404, 43)
-script = ExtResource("4_dqsmx")
 keyCode = 75
 
 [node name="TakeRock2" parent="." instance=ExtResource("2_324qe")]
 position = Vector2(543, 64)
-script = ExtResource("4_dqsmx")
-keyCode = 74
+keyCode = 76
 
 [node name="TakeRock3" parent="." instance=ExtResource("2_324qe")]
 position = Vector2(380, 149)
-script = ExtResource("4_dqsmx")
-keyCode = 76
+keyCode = 74

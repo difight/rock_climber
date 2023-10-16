@@ -158,6 +158,4 @@ node_b = NodePath("../RightLeg")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="body_shape_entered" from="LeftHand" to="." method="_on_left_hand_body_shape_entered"]
-[connection signal="body_shape_exited" from="LeftHand" to="." method="_on_left_hand_body_shape_exited"]
 [connection signal="body_shape_entered" from="RightHand" to="." method="_on_right_hand_body_shape_entered"]
-[connection signal="body_shape_exited" from="RightHand" to="." method="_on_right_hand_body_shape_exited"]
