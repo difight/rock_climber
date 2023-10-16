@@ -1,0 +1,8 @@
+res://default_env.tres
+res://scenes/Root.tscn
+res://scripts/TakeRock.gd
+res://scenes/character/Character.tscn
+res://scenes/TakeRock.tscn
+res://scripts/autoload/busevents.gd
+res://scripts/Rocks.gd
+res://scripts/class/TakeRock.gd

@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhxv4gktcet5h"]
+
+[ext_resource type="Script" path="res://scripts/Character.gd" id="1_e41ya"]
+[ext_resource type="Texture2D" uid="uid://bu2y4v52fq7mx" path="res://images/character/tors.png" id="1_nebdo"]
+[ext_resource type="Texture2D" uid="uid://pcahoymwjtl0" path="res://images/character/head.png" id="2_al6rc"]
+[ext_resource type="Texture2D" uid="uid://b8er6hr3lmilp" path="res://images/character/forearm.png" id="3_5jdby"]
+[ext_resource type="Texture2D" uid="uid://kpagqcydbqfs" path="res://images/character/hand.png" id="4_omukx"]
+[ext_resource type="Texture2D" uid="uid://cakdedck5grry" path="res://images/character/leg.png" id="5_k0d2t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcy6y"]
+radius = 18.0278
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvhti"]
+radius = 24.0
+height = 84.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2lwco"]
+radius = 7.19149
+height = 47.1848
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwguk"]
+radius = 10.0499
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uojor"]
+radius = 8.0
+height = 56.0009
+
+[node name="Character" type="Node2D"]
+rotation = -0.000437677
+script = ExtResource("1_e41ya")
+
+[node name="Head" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+shape = SubResource("CircleShape2D_tcy6y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Head"]
+texture = ExtResource("2_al6rc")
+
+[node name="Tors" type="RigidBody2D" parent="."]
+position = Vector2(0, 61)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tors"]
+shape = SubResource("CapsuleShape2D_hvhti")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tors"]
+texture = ExtResource("1_nebdo")
+
+[node name="LeftArm" type="RigidBody2D" parent="."]
+position = Vector2(30.9917, 19.0136)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm"]
+rotation = 0.909463
+scale = Vector2(1.13685, 1)
+shape = SubResource("CapsuleShape2D_2lwco")
+
+[node name="Forearm" type="Sprite2D" parent="LeftArm"]
+position = Vector2(-3.8147e-06, -1.90735e-06)
+texture = ExtResource("3_5jdby")
+
+[node name="LeftHand" type="RigidBody2D" parent="."]
+position = Vector2(51.9987, 3.02276)
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand"]
+shape = SubResource("CircleShape2D_lwguk")
+
+[node name="Hand" type="Sprite2D" parent="LeftHand"]
+texture = ExtResource("4_omukx")
+
+[node name="RightArm" type="RigidBody2D" parent="."]
+position = Vector2(-32.0079, 17.986)
+rotation = -1.80497
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm"]
+rotation = 0.909463
+scale = Vector2(1.13685, 1)
+shape = SubResource("CapsuleShape2D_2lwco")
+
+[node name="Forearm" type="Sprite2D" parent="RightArm"]
+position = Vector2(-3.8147e-06, -1.90735e-06)
+texture = ExtResource("3_5jdby")
+
+[node name="RightHand" type="RigidBody2D" parent="."]
+position = Vector2(-49.0013, 2.97855)
+rotation = -1.80497
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand"]
+shape = SubResource("CircleShape2D_lwguk")
+
+[node name="Hand" type="Sprite2D" parent="RightHand"]
+texture = ExtResource("4_omukx")
+
+[node name="RightLeg" type="RigidBody2D" parent="."]
+position = Vector2(-11.0538, 122.995)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg"]
+shape = SubResource("CapsuleShape2D_uojor")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightLeg"]
+texture = ExtResource("5_k0d2t")
+
+[node name="LeftLeg" type="RigidBody2D" parent="."]
+position = Vector2(11.9462, 123.005)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg"]
+shape = SubResource("CapsuleShape2D_uojor")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftLeg"]
+texture = ExtResource("5_k0d2t")
+
+[node name="PinHeadTors" type="PinJoint2D" parent="."]
+position = Vector2(0, 18)
+node_a = NodePath("../Head")
+node_b = NodePath("../Tors")
+
+[node name="PinTorsLeftArm" type="PinJoint2D" parent="."]
+position = Vector2(15.9864, 31.007)
+node_a = NodePath("../Tors")
+node_b = NodePath("../LeftArm")
+
+[node name="PinLeftArmHand" type="PinJoint2D" parent="."]
+position = Vector2(45.9969, 7.02013)
+node_a = NodePath("../LeftArm")
+node_b = NodePath("../LeftHand")
+
+[node name="PinTorsRightArm" type="PinJoint2D" parent="."]
+position = Vector2(-16.0136, 30.993)
+node_a = NodePath("../Tors")
+node_b = NodePath("../RightArm")
+
+[node name="PinRightArnHand" type="PinJoint2D" parent="."]
+position = Vector2(-45.0031, 6.9803)
+node_a = NodePath("../RightArm")
+node_b = NodePath("../RightHand")
+
+[node name="PinTorsLeftLeg" type="PinJoint2D" parent="."]
+position = Vector2(11.9567, 99.0052)
+node_a = NodePath("../Tors")
+node_b = NodePath("../LeftLeg")
+
+[node name="PinTorsRightLeg" type="PinJoint2D" parent="."]
+position = Vector2(-11.0433, 98.9952)
+node_a = NodePath("../Tors")
+node_b = NodePath("../RightLeg")
+
+[connection signal="body_entered" from="LeftHand" to="." method="_on_left_hand_body_entered"]
+[connection signal="body_shape_entered" from="LeftHand" to="." method="_on_left_hand_body_shape_entered"]
+[connection signal="body_shape_exited" from="LeftHand" to="." method="_on_left_hand_body_shape_exited"]

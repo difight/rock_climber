@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://6ypanhmu2vb8"]
+
+[ext_resource type="PackedScene" uid="uid://dhxv4gktcet5h" path="res://scenes/character/Character.tscn" id="1_lxsdu"]
+[ext_resource type="PackedScene" uid="uid://dpk75fq7y6al5" path="res://scenes/Rock.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://d0c4daup83kb2" path="res://scenes/TakeRock.tscn" id="2_324qe"]
+
+[sub_resource type="Environment" id="Environment_mtjg5"]
+
+[node name="Root" type="Node2D"]
+position = Vector2(26.6965, 782.216)
+
+[node name="Rock" parent="." instance=ExtResource("2")]
+position = Vector2(-256.697, -668.216)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mtjg5")
+
+[node name="TakeRock" parent="." instance=ExtResource("2_324qe")]
+position = Vector2(335.303, -549.216)
+
+[node name="Character" parent="." instance=ExtResource("1_lxsdu")]
+position = Vector2(260.303, -624.216)
+
+[node name="Pins" type="Node2D" parent="."]

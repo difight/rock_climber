@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgy5x7tr3fj28"]
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_m4r2w"]
+target_nodepath = NodePath("../Targets/LeftHandTarget")
+flip_bend_direction = true
+joint_one_bone_idx = 2
+joint_one_bone2d_node = NodePath("Tors/LeftArm")
+joint_two_bone_idx = 3
+joint_two_bone2d_node = NodePath("Tors/LeftArm/LeftHand")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_65i31"]
+target_nodepath = NodePath("../Targets/RightHandTarget")
+flip_bend_direction = true
+joint_one_bone_idx = 4
+joint_one_bone2d_node = NodePath("Tors/RightArm")
+joint_two_bone_idx = 5
+joint_two_bone2d_node = NodePath("Tors/RightArm/RightHand")
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_bmhu3"]
+bone_index = 1
+bone2d_node = NodePath("Tors/Head")
+target_nodepath = NodePath("../Targets/HeadTarget")
+
+[sub_resource type="SkeletonModification2D" id="SkeletonModification2D_exioi"]
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_iql5p"]
+enabled = true
+modification_count = 4
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_m4r2w")
+modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_65i31")
+modifications/2 = SubResource("SkeletonModification2DLookAt_bmhu3")
+modifications/3 = SubResource("SkeletonModification2D_exioi")
+
+[node name="CharacterPhysics" type="Node2D"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+position = Vector2(56, 6)
+rotation = 0.0196381
+modification_stack = SubResource("SkeletonModificationStack2D_iql5p")
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="PhysicalBone2D" type="PhysicalBone2D" parent="Skeleton2D/Bone2D"]
+bone2d_nodepath = NodePath("..")
+follow_bone_when_simulating = true

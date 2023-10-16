@@ -1,20 +1,35 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://6ypanhmu2vb8"]
 
-[ext_resource path="res://scenes/TakeRock.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Rock.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/Rock.gd" type="Script" id=3]
-[ext_resource path="res://scenes/PlayerSecond.tscn" type="PackedScene" id=4]
+[ext_resource type="PackedScene" uid="uid://dhxv4gktcet5h" path="res://scenes/character/Character.tscn" id="1_lxsdu"]
+[ext_resource type="PackedScene" uid="uid://dpk75fq7y6al5" path="res://scenes/Rock.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://d0c4daup83kb2" path="res://scenes/TakeRock.tscn" id="2_324qe"]
+[ext_resource type="Script" path="res://scripts/Rocks.gd" id="4_dqsmx"]
 
-[node name="Node2D" type="Node2D"]
-position = Vector2( 26.6965, 782.216 )
+[sub_resource type="Environment" id="Environment_mtjg5"]
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 940.52, 347.407 )
+[node name="Root" type="Node2D"]
 
-[node name="Rock" parent="." instance=ExtResource( 2 )]
-position = Vector2( -1737.9, -1020.99 )
-scale = Vector2( 3, 3 )
-script = ExtResource( 3 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mtjg5")
 
-[node name="TakeRock" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1210.71, 440.865 )
+[node name="Rock" parent="." instance=ExtResource("2")]
+
+[node name="Character" parent="." instance=ExtResource("1_lxsdu")]
+position = Vector2(453, 53)
+
+[node name="Pins" type="Node2D" parent="."]
+
+[node name="TakeRock" parent="." instance=ExtResource("2_324qe")]
+position = Vector2(404, 43)
+script = ExtResource("4_dqsmx")
+keyCode = 75
+
+[node name="TakeRock2" parent="." instance=ExtResource("2_324qe")]
+position = Vector2(543, 64)
+script = ExtResource("4_dqsmx")
+keyCode = 74
+
+[node name="TakeRock3" parent="." instance=ExtResource("2_324qe")]
+position = Vector2(380, 149)
+script = ExtResource("4_dqsmx")
+keyCode = 76

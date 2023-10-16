@@ -1,13 +1,13 @@
 extends Node2D
 
-onready var Right_Hand:RigidBody2D = get_node("Right_Hand")
-onready var Left_Hand:RigidBody2D = get_node("Left_Hand")
+@onready var Right_Hand:RigidBody2D = get_node("Right_Hand")
+@onready var Left_Hand:RigidBody2D = get_node("Left_Hand")
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 func _init():
-	Busevents.connect("go_to_rock", self, "_on_Go_To_Rock")
+	Busevents.connect("go_to_rock", Callable(self, "_on_Go_To_Rock"))
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
