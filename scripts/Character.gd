@@ -12,7 +12,7 @@ signal unpressedTake(key:Key)
 
 var currentTargetRock:Node2D
 var goJump:bool = false
-const PowerToTarget:float = 100.0
+const PowerToTarget:float = 200.0
 
 func _ready():
 	Signals.unpressedTake.connect(unpressTakeRock)
@@ -61,7 +61,6 @@ func find_nerest_hand(rock:Node2D):
 	return nerestHand
 
 func add_pin(hand:RigidBody2D, rock:Node2D):
-	print_debug('add pin')
 	var pin = PinJoint2D.new()
 	pin.node_a = hand.get_path()
 	pin.node_b = rock.get_path()
@@ -71,6 +70,7 @@ func add_pin(hand:RigidBody2D, rock:Node2D):
 	hand.take_rock(rock)
 	rock.get_parent().take_rock()
 	rock.get_parent().take_hand(hand)
+	Rock.queue_free()
 
 func remove_pin(hand:RigidBody2D):
 	if hand.rockTake:

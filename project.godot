@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 Busevents="*res://scripts/autoload/busevents.gd"
 Signals="*res://scripts/autoload/signals.gd"
+Variables="*res://scripts/autoload/variables.gd"
 
 [display]
 

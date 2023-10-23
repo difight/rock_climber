@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://blw0qkuop2ffo"]
+
+[ext_resource type="Script" path="res://scripts/class/TakeRock.gd" id="1_j38tm"]
+[ext_resource type="Texture2D" uid="uid://da1sxbhojgh5i" path="res://images/rocks/rock4.png" id="2_oyv4x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhxiy"]
+
+[node name="TakeRock" type="Node2D" groups=["key_k", "rock_take", "rocks_take_free"]]
+script = ExtResource("1_j38tm")
+
+[node name="Rock" type="StaticBody2D" parent="." groups=["rocks"]]
+disable_mode = 1
+collision_layer = 2
+
+[node name="Rock4" type="Sprite2D" parent="Rock"]
+position = Vector2(0, 5)
+texture = ExtResource("2_oyv4x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rock"]
+polygon = PackedVector2Array(-19, -13, -23, -8, -27, -5, -28, 1, -26, 5, -25, 8, -25, 12, -23, 13, -18, 15, -15, 16, -11, 18, -12, 20, -15, 21, -15, 25, -15, 29, -11, 32, -8, 31, -6, 33, -3, 34, -1, 37, 2, 39, 4, 38, 6, 37, 8, 35, 9, 32, 9, 29, 9, 27, 10, 23, 13, 22, 20, 22, 21, 20, 24, 16, 23, 13, 21, 11, 18, 11, 16, 8, 17, 6, 20, 6, 24, 5, 26, 3, 27, -1, 25, -3, 23, -7, 21, -9, 19, -9, 16, -14, 16, -17, 16, -21, 16, -24, 11, -25, 5, -25, -1, -24, -6, -22, -12, -19, -16, -16)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -11.0
+offset_right = 20.0
+offset_bottom = 15.0
+text = "K"
+label_settings = SubResource("LabelSettings_jhxiy")
+horizontal_alignment = 1
+vertical_alignment = 1

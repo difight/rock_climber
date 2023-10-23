@@ -1,12 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://dhxv4gktcet5h"]
 
 [ext_resource type="Script" path="res://scripts/Character.gd" id="1_e41ya"]
-[ext_resource type="Texture2D" uid="uid://bu2y4v52fq7mx" path="res://images/character/tors.png" id="1_nebdo"]
-[ext_resource type="Texture2D" uid="uid://pcahoymwjtl0" path="res://images/character/head.png" id="2_al6rc"]
-[ext_resource type="Texture2D" uid="uid://b8er6hr3lmilp" path="res://images/character/forearm.png" id="3_5jdby"]
-[ext_resource type="Texture2D" uid="uid://kpagqcydbqfs" path="res://images/character/hand.png" id="4_omukx"]
+[ext_resource type="Texture2D" uid="uid://y2fqkhm1u0l1" path="res://images/character/character.png" id="2_2x0vp"]
 [ext_resource type="Script" path="res://scripts/Hand.gd" id="5_4ela7"]
-[ext_resource type="Texture2D" uid="uid://cakdedck5grry" path="res://images/character/leg.png" id="5_k0d2t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tcy6y"]
 radius = 18.0278
@@ -17,14 +13,30 @@ height = 84.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2lwco"]
 radius = 7.19149
-height = 47.1848
+height = 44.0411
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vuqm"]
+radius = 6.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwguk"]
 radius = 10.0499
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r6q5a"]
+radius = 5.27082
+height = 22.6011
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uojor"]
 radius = 8.0
-height = 56.0009
+height = 31.8771
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uki1p"]
+radius = 8.7498
+height = 42.2988
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4hf7"]
+radius = 9.0
+height = 48.0008
 
 [node name="Character" type="Node2D"]
 rotation = -0.000437677
@@ -36,8 +48,11 @@ mass = 5.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
 shape = SubResource("CircleShape2D_tcy6y")
 
-[node name="Sprite2D" type="Sprite2D" parent="Head"]
-texture = ExtResource("2_al6rc")
+[node name="Polygon2D" type="Polygon2D" parent="Head"]
+position = Vector2(-127.989, -26.056)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(112, 16, 104, 32, 112, 40, 120, 48, 136, 48, 144, 40, 152, 24, 152, 16, 160, 16, 160, 8, 144, 8, 128, 0, 112, 8)
+uv = PackedVector2Array(112, 16, 104, 32, 112, 40, 120, 48, 136, 48, 144, 40, 152, 24, 152, 16, 160, 16, 160, 8, 144, 8, 128, 0, 112, 8)
 
 [node name="Tors" type="RigidBody2D" parent="."]
 position = Vector2(0, 61)
@@ -45,24 +60,42 @@ position = Vector2(0, 61)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tors"]
 shape = SubResource("CapsuleShape2D_hvhti")
 
-[node name="Sprite2D" type="Sprite2D" parent="Tors"]
-texture = ExtResource("1_nebdo")
+[node name="Polygon2D" type="Polygon2D" parent="Tors"]
+position = Vector2(-127.984, -98.056)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(112, 64, 104, 80, 96, 104, 104, 128, 112, 152, 128, 160, 152, 144, 160, 120, 160, 96, 152, 80, 144, 56, 136, 48, 120, 48)
+uv = PackedVector2Array(112, 64, 104, 80, 96, 104, 104, 128, 112, 152, 128, 160, 152, 144, 160, 120, 160, 96, 152, 80, 144, 56, 136, 48, 120, 48)
 
-[node name="LeftArm" type="RigidBody2D" parent="."]
+[node name="LeftPreArm" type="RigidBody2D" parent="."]
 position = Vector2(30.9917, 19.0136)
 mass = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPreArm"]
 rotation = 0.909463
 scale = Vector2(1.13685, 1)
 shape = SubResource("CapsuleShape2D_2lwco")
 
-[node name="Forearm" type="Sprite2D" parent="LeftArm"]
-position = Vector2(-3.8147e-06, -1.90735e-06)
-texture = ExtResource("3_5jdby")
+[node name="Polygon2D" type="Polygon2D" parent="LeftPreArm"]
+position = Vector2(-173.024, 53.9243)
+rotation = -0.645219
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(168, 48, 152, 48, 144, 56, 144, 56, 152, 72, 192, 72, 200, 64, 184, 48)
+uv = PackedVector2Array(168, 48, 152, 48, 144, 56, 144, 56, 152, 72, 192, 72, 200, 64, 184, 48)
+
+[node name="LeftArm" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm"]
+position = Vector2(46.0009, -1.97987)
+shape = SubResource("CapsuleShape2D_5vuqm")
+
+[node name="Polygon2D" type="Polygon2D" parent="LeftArm"]
+position = Vector2(-149.98, -45.0656)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(184, 32, 184, 48, 200, 64, 208, 48, 208, 32, 192, 24)
+uv = PackedVector2Array(184, 32, 184, 48, 200, 64, 208, 48, 208, 32, 192, 24)
 
 [node name="LeftHand" type="RigidBody2D" parent="."]
-position = Vector2(51.9987, 3.02276)
+position = Vector2(46.0083, -18.9799)
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("5_4ela7")
@@ -70,26 +103,49 @@ script = ExtResource("5_4ela7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand"]
 shape = SubResource("CircleShape2D_lwguk")
 
-[node name="Hand" type="Sprite2D" parent="LeftHand"]
-texture = ExtResource("4_omukx")
+[node name="Polygon2D" type="Polygon2D" parent="LeftHand"]
+position = Vector2(-200.993, -15.088)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(192, 8, 184, 16, 192, 24, 208, 32, 216, 16, 208, 0, 200, 0)
+uv = PackedVector2Array(192, 8, 184, 16, 192, 24, 208, 32, 216, 16, 208, 0, 200, 0)
 
-[node name="RightArm" type="RigidBody2D" parent="."]
+[node name="RightPreArm" type="RigidBody2D" parent="."]
 position = Vector2(-32.0079, 17.986)
 rotation = -1.80497
 mass = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPreArm"]
 rotation = 0.909463
 scale = Vector2(1.13685, 1)
 shape = SubResource("CapsuleShape2D_2lwco")
 
-[node name="Forearm" type="Sprite2D" parent="RightArm"]
-position = Vector2(-3.8147e-06, -1.90735e-06)
-texture = ExtResource("3_5jdby")
+[node name="Polygon2D" type="Polygon2D" parent="RightPreArm"]
+position = Vector2(104.467, -6.90422)
+rotation = 2.4512
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(64, 56, 88, 48, 112, 56, 104, 72, 88, 72, 64, 72, 56, 64)
+uv = PackedVector2Array(64, 56, 88, 48, 112, 56, 104, 72, 88, 72, 64, 72, 56, 64)
+
+[node name="RightArm" type="RigidBody2D" parent="."]
+position = Vector2(-60.9978, -5.0267)
+rotation = -1.80497
+mass = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm"]
+position = Vector2(-6.67282, 14.8477)
+rotation = -1.33692
+scale = Vector2(1.13685, 1)
+shape = SubResource("CapsuleShape2D_r6q5a")
+
+[node name="Polygon2D" type="Polygon2D" parent="RightArm"]
+position = Vector2(46.4473, -35.166)
+rotation = 1.77205
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(64, 32, 72, 48, 56, 64, 48, 48, 48, 32, 56, 32, 64, 24)
+uv = PackedVector2Array(64, 32, 72, 48, 56, 64, 48, 48, 48, 32, 56, 32, 64, 24)
 
 [node name="RightHand" type="RigidBody2D" parent="."]
-position = Vector2(-49.0013, 2.97855)
-rotation = -1.80497
+position = Vector2(-44.9912, -20.0197)
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("5_4ela7")
@@ -97,28 +153,90 @@ script = ExtResource("5_4ela7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand"]
 shape = SubResource("CircleShape2D_lwguk")
 
-[node name="Hand" type="Sprite2D" parent="RightHand"]
-texture = ExtResource("4_omukx")
+[node name="Polygon2D" type="Polygon2D" parent="RightHand"]
+position = Vector2(-58.9934, -15.0258)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(48, 0, 72, 8, 72, 24, 48, 32)
+uv = PackedVector2Array(48, 0, 72, 8, 72, 24, 48, 32)
 
-[node name="RightLeg" type="RigidBody2D" parent="."]
+[node name="RightPreLeg" type="RigidBody2D" parent="."]
 position = Vector2(-11.0538, 122.995)
 mass = 4.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPreLeg"]
+position = Vector2(0.0021553, -4.99982)
 shape = SubResource("CapsuleShape2D_uojor")
 
-[node name="Sprite2D" type="Sprite2D" parent="RightLeg"]
-texture = ExtResource("5_k0d2t")
+[node name="Polygon2D" type="Polygon2D" parent="RightPreLeg"]
+position = Vector2(-95.9256, -170.042)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(88, 152, 80, 168, 96, 192, 112, 168, 104, 144, 96, 136)
+uv = PackedVector2Array(88, 152, 80, 168, 96, 192, 112, 168, 104, 144, 96, 136)
 
-[node name="LeftLeg" type="RigidBody2D" parent="."]
-position = Vector2(11.9462, 123.005)
+[node name="RightLeg" type="RigidBody2D" parent="."]
+position = Vector2(-11.0643, 146.995)
 mass = 4.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg"]
+position = Vector2(-0.00300789, 7.0001)
+scale = Vector2(1.04572, 1.18209)
+shape = SubResource("CapsuleShape2D_uki1p")
+
+[node name="Polygon2D" type="Polygon2D" parent="RightLeg"]
+position = Vector2(-83.6742, -210.977)
+scale = Vector2(0.973125, 1.0219)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(80, 192, 72, 208, 80, 240, 96, 240, 96, 184, 80, 184)
+uv = PackedVector2Array(80, 192, 72, 208, 80, 240, 96, 240, 96, 184, 80, 184)
+
+[node name="RightStep" type="RigidBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="RightStep"]
+position = Vector2(-67.9772, -52.0298)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(64, 216, 72, 248, 64, 256, 32, 256, 24, 248, 32, 240, 40, 232, 48, 216)
+uv = PackedVector2Array(64, 216, 72, 248, 64, 256, 32, 256, 24, 248, 32, 240, 40, 232, 48, 216)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightStep"]
+position = Vector2(-33.0845, 192.985)
+polygon = PackedVector2Array(-5.00306, 6.99785, 7.9965, 8.00354, 30.9965, 8.01361, 31.0114, -25.9864, 16.0105, -23.993, 14.0066, -14.9938, 9.0035, -7.99602, 3.00263, -5.99866, -3.99869, -3.00171)
+
+[node name="LeftPreLeg" type="RigidBody2D" parent="."]
+position = Vector2(11.9484, 118.005)
+mass = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPreLeg"]
 shape = SubResource("CapsuleShape2D_uojor")
 
-[node name="Sprite2D" type="Sprite2D" parent="LeftLeg"]
-texture = ExtResource("5_k0d2t")
+[node name="Polygon2D" type="Polygon2D" parent="LeftPreLeg"]
+position = Vector2(-158.928, -165.069)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(152, 144, 144, 168, 152, 184, 168, 184, 176, 168, 168, 152, 160, 144)
+uv = PackedVector2Array(152, 144, 144, 168, 152, 184, 168, 184, 176, 168, 168, 152, 160, 144)
+
+[node name="LeftLeg" type="RigidBody2D" parent="."]
+position = Vector2(11.933, 153.005)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg"]
+shape = SubResource("CapsuleShape2D_r4hf7")
+
+[node name="Polygon2D" type="Polygon2D" parent="LeftLeg"]
+position = Vector2(-168.907, -212.074)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(160, 192, 152, 208, 160, 240, 176, 240, 184, 216, 176, 192, 168, 184)
+uv = PackedVector2Array(160, 192, 152, 208, 160, 240, 176, 240, 184, 216, 176, 192, 168, 184)
+
+[node name="LeftStep" type="RigidBody2D" parent="."]
+position = Vector2(11.9252, 171.005)
+
+[node name="Polygon2D" type="Polygon2D" parent="LeftStep"]
+position = Vector2(-197.902, -223.087)
+texture = ExtResource("2_2x0vp")
+polygon = PackedVector2Array(192, 216, 184, 232, 184, 256, 232, 256, 232, 240, 216, 240, 208, 216)
+uv = PackedVector2Array(192, 216, 184, 232, 184, 256, 232, 256, 232, 240, 216, 240, 208, 216)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftStep"]
+polygon = PackedVector2Array(-7.00044, 0.996933, -7.01313, 29.9969, 25.9869, 30.0114, 28.989, 25.0127, 26.9912, 20.0118, 17.9926, 17.0079, 12.9939, 14.0057, 9.99868, 3.00438, 6.00219, -4.99738, -5.99781, -5.00262, -7.99825, -4.00349)
 
 [node name="PinHeadTors" type="PinJoint2D" parent="."]
 position = Vector2(0, 18)
@@ -128,32 +246,62 @@ node_b = NodePath("../Tors")
 [node name="PinTorsLeftArm" type="PinJoint2D" parent="."]
 position = Vector2(15.9864, 31.007)
 node_a = NodePath("../Tors")
-node_b = NodePath("../LeftArm")
+node_b = NodePath("../LeftPreArm")
 
-[node name="PinLeftArmHand" type="PinJoint2D" parent="."]
+[node name="PinLeftPreArmLeftArm" type="PinJoint2D" parent="."]
 position = Vector2(45.9969, 7.02013)
-node_a = NodePath("../LeftArm")
-node_b = NodePath("../LeftHand")
+node_a = NodePath("../LeftPreArm")
+node_b = NodePath("../LeftArm")
 
 [node name="PinTorsRightArm" type="PinJoint2D" parent="."]
 position = Vector2(-16.0136, 30.993)
 node_a = NodePath("../Tors")
+node_b = NodePath("../RightPreArm")
+
+[node name="PinRightPreArnRightArm" type="PinJoint2D" parent="."]
+position = Vector2(-45.0031, 6.9803)
+node_a = NodePath("../RightPreArm")
 node_b = NodePath("../RightArm")
 
-[node name="PinRightArnHand" type="PinJoint2D" parent="."]
-position = Vector2(-45.0031, 6.9803)
+[node name="PinTorsLeftLeg" type="PinJoint2D" parent="."]
+position = Vector2(11.9536, 106.005)
+node_a = NodePath("../Tors")
+node_b = NodePath("../LeftPreLeg")
+
+[node name="PinTorsRightLeg" type="PinJoint2D" parent="."]
+position = Vector2(-11.0464, 105.995)
+node_a = NodePath("../Tors")
+node_b = NodePath("../RightPreLeg")
+
+[node name="PinLeftArmHand" type="PinJoint2D" parent="."]
+position = Vector2(46.0057, -12.9799)
+node_a = NodePath("../LeftArm")
+node_b = NodePath("../LeftHand")
+
+[node name="PinRightArmHand" type="PinJoint2D" parent="."]
+position = Vector2(-44.9943, -13.0197)
 node_a = NodePath("../RightArm")
 node_b = NodePath("../RightHand")
 
-[node name="PinTorsLeftLeg" type="PinJoint2D" parent="."]
-position = Vector2(11.9567, 99.0052)
-node_a = NodePath("../Tors")
+[node name="PinRightPreLegLeg" type="PinJoint2D" parent="."]
+position = Vector2(-11.0578, 131.995)
+node_a = NodePath("../RightPreLeg")
+node_b = NodePath("../RightLeg")
+
+[node name="PinRightLegStep" type="PinJoint2D" parent="."]
+position = Vector2(-11.0757, 172.995)
+node_a = NodePath("../RightLeg")
+node_b = NodePath("../RightStep")
+
+[node name="PinLeftPreLegLeg" type="PinJoint2D" parent="."]
+position = Vector2(11.9422, 132.005)
+node_a = NodePath("../LeftPreLeg")
 node_b = NodePath("../LeftLeg")
 
-[node name="PinTorsRightLeg" type="PinJoint2D" parent="."]
-position = Vector2(-11.0433, 98.9952)
-node_a = NodePath("../Tors")
-node_b = NodePath("../RightLeg")
+[node name="PinLeft" type="PinJoint2D" parent="."]
+position = Vector2(12.9243, 173.006)
+node_a = NodePath("../LeftLeg")
+node_b = NodePath("../LeftStep")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
