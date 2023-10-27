@@ -304,6 +304,11 @@ node_a = NodePath("../LeftLeg")
 node_b = NodePath("../LeftStep")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1.99956, -1.00088)
+limit_left = 0
+limit_right = 1080
+limit_bottom = 940
+drag_vertical_enabled = true
 
 [connection signal="body_shape_entered" from="LeftHand" to="." method="_on_left_hand_body_shape_entered"]
 [connection signal="body_shape_entered" from="RightHand" to="." method="_on_right_hand_body_shape_entered"]

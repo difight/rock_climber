@@ -8,6 +8,7 @@ signal unpressedTake(key:Key)
 @onready var Head:RigidBody2D = $Head
 @onready var PinsNode:Node2D = get_tree().get_root().get_node('Root/Pins')
 @onready var Rock:Node2D = get_tree().get_root().get_node('Root/Rock')
+@onready var Camera:Camera2D = get_node("Camera2D")
 
 
 var currentTargetRock:Node2D
@@ -30,6 +31,7 @@ func _unhandled_key_input(event):
 		goJump = true
 
 func _physics_process(delta):
+	Camera.position = Head.position
 	if find_target_rock() and (LeftHand.get_free_hand() or RightHand.get_free_hand()):
 		currentTargetRock = find_target_rock()
 		var nerestHand:RigidBody2D = find_nerest_hand(currentTargetRock)
@@ -70,7 +72,6 @@ func add_pin(hand:RigidBody2D, rock:Node2D):
 	hand.take_rock(rock)
 	rock.get_parent().take_rock()
 	rock.get_parent().take_hand(hand)
-	Rock.queue_free()
 
 func remove_pin(hand:RigidBody2D):
 	if hand.rockTake:

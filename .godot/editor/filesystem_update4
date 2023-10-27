@@ -1,8 +1,11 @@
 res://default_env.tres
-res://scenes/rocks/Rock4.tscn
-res://scripts/class/TakeRock.gd
-res://scripts/class/TakeRocksGenerator.gd
 res://scenes/Root.tscn
-res://scenes/character/Character.tscn
-res://scripts/autoload/variables.gd
+res://scripts/class/TakeRock.gd
 res://scripts/Rocks.gd
+res://scenes/character/Character.tscn
+res://scenes/rocks/Rock.tscn
+res://scenes/rocks/Rock4.tscn
+res://scenes/rocks/Rock3.tscn
+res://scenes/rocks/Rock2.tscn
+res://scripts/autoload/variables.gd
+res://scripts/Character.gd

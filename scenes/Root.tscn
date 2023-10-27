@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://6ypanhmu2vb8"]
+[gd_scene load_steps=6 format=3 uid="uid://6ypanhmu2vb8"]
 
 [ext_resource type="PackedScene" uid="uid://dhxv4gktcet5h" path="res://scenes/character/Character.tscn" id="1_lxsdu"]
 [ext_resource type="PackedScene" uid="uid://dpk75fq7y6al5" path="res://scenes/Rock.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/Rocks.gd" id="3_g7027"]
+[ext_resource type="Texture2D" uid="uid://bqlaxxthf4mek" path="res://images/backgrounds/sky.jpg" id="4_j83jy"]
 
 [sub_resource type="Environment" id="Environment_mtjg5"]
 
@@ -12,11 +13,20 @@
 environment = SubResource("Environment_mtjg5")
 
 [node name="Rock" parent="." instance=ExtResource("2")]
+position = Vector2(-530, 38)
 
 [node name="Character" parent="." instance=ExtResource("1_lxsdu")]
-position = Vector2(523, 28)
 
 [node name="Pins" type="Node2D" parent="."]
 
 [node name="Rocks" type="Node2D" parent="."]
+position = Vector2(-1, 0)
 script = ExtResource("3_g7027")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(123, 17)
+texture = ExtResource("4_j83jy")

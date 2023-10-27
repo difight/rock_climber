@@ -11,7 +11,9 @@ var rocks = [
 
 func get_rock():
 	var randRockId = randi_range(0, len(rocks)-1)
-	return self.rocks[randRockId].instantiate(self.get_free_key())
+	var rockScene = self.rocks[randRockId].instantiate()
+	rockScene.init_key(self.get_free_key())
+	return rockScene
 
 func get_free_key():
 	var randKey = randi_range(0, len(Variables.keyTakeFree)-1)

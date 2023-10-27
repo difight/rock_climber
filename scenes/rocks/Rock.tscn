@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctuqoxog2x5br"]
 
-[ext_resource type="Script" path="res://scripts/class/TakeRock.gd" id="1_5tc32"]
+[ext_resource type="Script" path="res://scripts/Rock.gd" id="1_jf6bi"]
 [ext_resource type="Texture2D" uid="uid://bikhrxtv21p0y" path="res://images/rocks/rock.png" id="2_268tq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhxiy"]
 
 [node name="TakeRock" type="Node2D" groups=["key_k", "rock_take", "rocks_take_free"]]
-script = ExtResource("1_5tc32")
+script = ExtResource("1_jf6bi")
 
 [node name="Rock" type="StaticBody2D" parent="." groups=["rocks"]]
 disable_mode = 1
 collision_layer = 2
 
-[node name="Rock2" type="Sprite2D" parent="Rock"]
+[node name="RockImg" type="Sprite2D" parent="Rock"]
 position = Vector2(-1, 1)
 texture = ExtResource("2_268tq")
 
